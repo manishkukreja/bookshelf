@@ -1,0 +1,49 @@
+<h1>Listing books</h1>
+
+<% form_tag books_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+
+<table>
+  <tr>
+  	<th>ID</th>
+    <th>Name</th>
+    <th>Permalink</th>
+    <th>Description</th>
+    <th>Notes</th>
+    <th>Published at</th>
+    <th>Position</th>
+    <th>Comments count</th>
+    <th>Legacy</th>
+    <th>File sizes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+  	<td><%= book.id %></td>
+    <td><%= book.name %></td>
+    <td><%= book.permalink %></td>
+    <td><%= book.description %></td>
+    <td><%= book.notes %></td>
+    <td><%= book.published_at %></td>
+    <td><%= book.position %></td>
+    <td><%= book.comments_count %></td>
+    <td><%= book.legacy %></td>
+    <td><%= book.file_sizes %></td>
+    <td><%= link_to 'Show', book %></td>
+    <td><%= link_to 'Edit', edit_book_path(book) %></td>
+    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Book', new_book_path %>

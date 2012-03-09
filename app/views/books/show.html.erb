@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @book.name %>
+</p>
+
+<p>
+  <b>Permalink:</b>
+  <%= @book.permalink %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @book.description %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @book.notes %>
+</p>
+
+<p>
+  <b>Published at:</b>
+  <%= @book.published_at %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @book.position %>
+</p>
+
+<p>
+  <b>Comments count:</b>
+  <%= @book.comments_count %>
+</p>
+
+<p>
+  <b>Legacy:</b>
+  <%= @book.legacy %>
+</p>
+
+<p>
+  <b>File sizes:</b>
+  <%= @book.file_sizes %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
