@@ -19,5 +19,17 @@ namespace :import_book do
     
   end
   
+  task :tagging => :environment do
+    Tagging.delete_all
+    book = Book.all
+    tag =Tag.all
+    t1=Tagging.create(:book_id => book.first.id, :tag_id => tag.first.id)
+    t2=Tagging.create(:book_id => book.second.id, :tag_id => tag.first.id)
+    t3=Tagging.create(:book_id => book.third.id, :tag_id => tag.second.id)
+    t4=Tagging.create(:book_id => book.fourth.id, :tag_id => tag.third.id)
+    t5=Tagging.create(:book_id => book.fifth.id, :tag_id => tag.fourth.id)
+    t6=Tagging.create(:book_id => 9, :tag_id => tag.first.id)
+    
+  end
   
 end
