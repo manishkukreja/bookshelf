@@ -3,18 +3,18 @@ class BooksController < ApplicationController
   # GET /books.xml
   def index
     @tag = Tag.find(params[:tag_id]) if params[:tag_id]
-    @books = Book.search(params[:search])
-    
-=begin    
+    #@books = Book.search(params[:search])
+    @books = (@tag ? @tag.books : Book).recent
+=begin   
     if params[:search].blank?
      
-      @books = (@tag ? @tag.books : Book)
+      @books = (@tag ? @tag.books : Book).recent
       #@books = Book.search(params[:search])
     else
       
       @books = Book.search(params[:search])
     end
-=end    
+=end   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @books }
