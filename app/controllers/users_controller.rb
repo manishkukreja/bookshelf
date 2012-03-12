@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(root_url, flash[:notice] => 'Registration was successful') }
+        format.html { redirect_to(root_url, :notice => 'Registration was successful') }
         #format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
