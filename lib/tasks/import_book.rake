@@ -28,7 +28,7 @@ namespace :import_book do
     t3=Tagging.create(:book_id => book.third.id, :tag_id => tag.second.id)
     t4=Tagging.create(:book_id => book.fourth.id, :tag_id => tag.third.id)
     t5=Tagging.create(:book_id => book.fifth.id, :tag_id => tag.fourth.id)
-    t6=Tagging.create(:book_id => 9, :tag_id => tag.first.id)
+    t6=Tagging.create(:book_id => book.fifth.id, :tag_id => tag.first.id)
     
   end
   
