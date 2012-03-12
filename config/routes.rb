@@ -1,5 +1,9 @@
 Bookshelf::Application.routes.draw do
   
+  resources :user_sessions
+
+  resources :users
+
   root :to => "books#index"
   
   resources :tags
@@ -7,6 +11,12 @@ Bookshelf::Application.routes.draw do
   
 
   resources :books
+  
+  resources :user_sessions
+  
+  get "login" => "user_sessions#new", :as => "login"
+  get "logout" => "user_sessions#destroy", :as => "logout"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
