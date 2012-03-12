@@ -1030,3 +1030,7 @@ pre code {
   margin: 15px 28px;
   margin-right: 0;
 }
+
+#user_nav {
+	float: right
+}

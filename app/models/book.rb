@@ -21,5 +21,12 @@ end
     published_at <= Time.zone.now
   end
   
+  def asset_name
+    [padded_position, permalink].join('-')
+  end
+  
+  def padded_position
+    position.to_s.rjust(3, "0")
+  end
   
 end
