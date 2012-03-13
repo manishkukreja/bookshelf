@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   # GET /books.xml
   def index
     @tag = Tag.find(params[:tag_id]) if params[:tag_id]
-    #@books = Book.search(params[:search])
+   
     
     if params[:search].blank?
      
@@ -12,7 +12,7 @@ class BooksController < ApplicationController
     else
       
       @books = Book.search_published(params[:search],params[:tag_id])
-     # @books = Book.search(params[:search])
+     
     end
    
     respond_to do |format|
