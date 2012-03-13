@@ -24,24 +24,21 @@ class BooksController < ApplicationController
 
   # GET /books/1
   # GET /books/1.xml
-  def show
-    @book = Book.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @book }
+  def show 
+    if params[:id] = @book.to_param
+      headers["Status"] = "301 Moved Permanently"
+      redirect_to book_url(@book)
+    else
+      @comment = Comment.new(:book_id => @book, :user => current_user)
     end
   end
 
   # GET /books/new
   # GET /books/new.xml
   def new
-    @book = Book.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @book }
-    end
+    
+    @book.position = Book.maximum(:position).to_i + 1
+  
   end
 
   # GET /books/1/edit

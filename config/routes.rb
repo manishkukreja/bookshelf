@@ -1,5 +1,7 @@
 Bookshelf::Application.routes.draw do
   
+  resources :comments
+
   resources :user_sessions
 
   resources :users

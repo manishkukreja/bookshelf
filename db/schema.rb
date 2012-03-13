@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312134119) do
+ActiveRecord::Schema.define(:version => 20120313082419) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,20 @@ ActiveRecord::Schema.define(:version => 20120312134119) do
     t.integer  "comments_count"
     t.boolean  "legacy"
     t.text     "file_sizes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "book_id"
+    t.text     "content"
+    t.string   "f_name"
+    t.string   "l_name"
+    t.string   "email"
+    t.string   "user_id"
+    t.string   "referrer"
+    t.string   "user_ip"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

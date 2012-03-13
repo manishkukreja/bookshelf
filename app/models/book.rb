@@ -17,6 +17,7 @@ class Book < ActiveRecord::Base
   end
 end
 
+########INDEX METHODS
  def published?
     published_at <= Time.zone.now
   end
@@ -51,5 +52,15 @@ end
       '(' + %w[name description notes].map { |col| "#{col} LIKE #{sanitize('%' + word.to_s + '%')}" }.join(' OR ') + ')'
     end.join(" #{join} ")
   end
+  
+########END OF INDEX METHODS  
+  
+   
+#######Show Methods
+def full_name
+    "\##{position} #{name}"
+  end
+#######  
+  
   
 end
