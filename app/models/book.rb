@@ -60,6 +60,20 @@ end
 def full_name
     "\##{position} #{name}"
   end
+  
+  
+  def last_published?
+    self == self.class.published.last
+  end
+  
+  def previous
+    self.class.where("position < ?", position).order("position desc").first
+  end
+
+  def next
+    self.class.where("position > ?", position).order("position").first
+  end
+  
 #######  
   
   

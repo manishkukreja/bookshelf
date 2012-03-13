@@ -25,12 +25,14 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.xml
   def show 
-    if params[:id] = @book.to_param
-      headers["Status"] = "301 Moved Permanently"
-      redirect_to book_url(@book)
-    else
-      @comment = Comment.new(:book_id => @book, :user => current_user)
-    end
+    @book = Book.find(params[:id])
+    # if params[:id] = @book.to_param   # Not understood 
+      # headers["Status"] = "301 Moved Permanently"
+      # redirect_to book_url(@book)
+    # else
+      # @book = Book.find(params[:id])
+      # @comment = Comment.new(:book => @book, :user => current_user)
+    # end
   end
 
   # GET /books/new
