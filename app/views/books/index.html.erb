@@ -1,5 +1,5 @@
 <% title "List of Books in BookSHelf", false %>
-<%= flash[:notice] %>
+
 
 <div class="content">
   <div class="side">
@@ -88,7 +88,7 @@
             <div class="book">
               <div class="screenshot"><%= link_to image_tag("/assets/episodes/stills/#{book.asset_name}.png", :size => "200x125"), book %></div>
               <div class="name">
-                #<%= book.position %>
+                <%= book.position %>
                 <%= link_to book.name, book %>
               </div>
             </div>
@@ -97,7 +97,7 @@
         </div>
       <% end %>
 
-      <%#= will_paginate :previous_label => h("< Previous Page"),  :next_label => h("Next Page >") %>
+      <%= will_paginate :previous_label => h("< Previous Page"),  :next_label => h("Next Page >") %>
     <% end %>
   </div>
 

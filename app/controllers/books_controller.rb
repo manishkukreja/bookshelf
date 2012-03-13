@@ -4,20 +4,21 @@ class BooksController < ApplicationController
   def index
     @tag = Tag.find(params[:tag_id]) if params[:tag_id]
     #@books = Book.search(params[:search])
-    @books = (@tag ? @tag.books : Book).recent
-=begin   
+    
     if params[:search].blank?
      
       @books = (@tag ? @tag.books : Book).recent
-      #@books = Book.search(params[:search])
+      
     else
       
-      @books = Book.search(params[:search])
+      @books = Book.search_published(params[:search],params[:tag_id])
+     # @books = Book.search(params[:search])
     end
-=end   
+   
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @books }
+     format.html { @books = @books.paginate(:page => params[:page], :per_page => books_per_page) }
+     format.rss
+      
     end
   end
 
@@ -91,4 +92,15 @@ class BooksController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+private
+
+  def books_per_page
+    case params[:view]
+    when "list" then 3
+    when "grid" then 4
+    else 5
+    end
+  end
+
 end
