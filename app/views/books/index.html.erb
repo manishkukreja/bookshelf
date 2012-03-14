@@ -1,4 +1,5 @@
-<% title "List of Books in BookSHelf", false %>
+<% title "List of Books in BookSHelf" %>
+<h1>List of Books in BookSHelf</h1>
 
 
 <div class="content">
@@ -70,15 +71,14 @@
             <th>#</th>
             <th>Name</th>
             <th>Comments</th>
-            <th>Duration</th>
             <th>Released</th>
           </tr>
           <% for book in @books %>
             <tr>
               <td><%= book.position %></td>
               <td><%= link_to book.name, book %></td>
-              <td><%#= link_to pluralize(book.comments.size, "comment"), book_path(book, :view => "comments"), :class => "comment_count" %></td>
-              <td><%#= book.published_at.strftime('%b %d, %Y') %></td>
+              <td></td><%#= link_to pluralize(book.comments.size, "comment"), book_path(book, :view => "comments"), :class => "comment_count" %></td>
+              <td><%= book.published_at.strftime('%b %d, %Y') %></td>
             </tr>
           <% end %>
         </table>
@@ -86,7 +86,7 @@
         <div class="grid">
           <% for book in @books %>
             <div class="book">
-              <div class="screenshot"><%= link_to image_tag("/assets/episodes/stills/#{book.asset_name}.png", :size => "200x125"), book %></div>
+              <div class="screenshot"><%= link_to image_tag("#{book.name.downcase}.png", :size => "200x125", :alt => book.name), {:autoplay => true}, :class => "play_video" %></div>
               <div class="name">
                 <%= book.position %>
                 <%= link_to book.name, book %>

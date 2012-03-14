@@ -74,6 +74,10 @@ def full_name
     self.class.where("position > ?", position).order("position").first
   end
   
+  def asset_url(path, ext = nil)
+    "http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
+  end
+  
 #######  
   
   

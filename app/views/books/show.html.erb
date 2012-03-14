@@ -1,6 +1,20 @@
- 
+<h1><%=  @book.name %></h1> 
 
-  
+
+<div id="episode" class="<%= "legacy" if @book.legacy? %>">
+  <% if params[:autoplay] %>
+    <div id="video_wrapper"><%= book_video_tag @book %></div>
+  <% else %>
+    <script type="text/html" id="video_template">
+      <%= book_video_tag @book %>
+    </script>
+  <% end %> 
+ <div class="info<%= " video_info" if params[:autoplay] %>">
+<div class="screenshot"><%= link_to image_tag("#{@book.name.downcase}.png", :size => "200x125", :alt => @book.name), {:autoplay => true}, :class => "play_video" %></div>
+      <h1>
+      <span class="position">#<%= @book.position %></span>
+      <%= @book.name %>
+    </h1>
     <div class="details">
       <%= @book.published_at.strftime('%b %d, %Y') %> |
       <%= raw @book.tags.map { |tag| link_to tag.display_name, root_path(:tag_id => tag) }.join(", ") %>
@@ -8,6 +22,7 @@
         <span class="unreleased">NOT YET RELEASED</span>
       <% end %>
     </div>
+    
     <div class="description"><%= @book.description %></div>
     <div class="watch">
       <%= link_to({:read => true}, {:class => "play_video watch_button"}) do %>
@@ -26,7 +41,7 @@
   <ul class="nav horizontal">
     <li class="selected"><%= tab_link "Show Notes", :view => nil %></li>   <!-- Tab_link method in application_helper -->
     <li><%#= tab_link pluralize(@book.comments.size, "Comment"), :view => "comments" %></li>  <!-- Not able to find comments method -->
-    <li><%#= tab_link "Similar books", :view => "similar" %></li>
+    <li><%= tab_link "Similar books", :view => "similar" %></li>
     <%= content_tag :li, link_to("Next book >", @book.next), :class => "next" if !@book.last_published? && @book.next %>
     <%= content_tag :li, link_to("< Previous book", @book.previous), :class => "previous" if @book.previous %>
   </ul>
