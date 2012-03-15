@@ -10,7 +10,7 @@
     </script>
   <% end %> 
  <div class="info<%= " video_info" if params[:autoplay] %>">
- 	<%= image_tag%>
+ 	<%= image_tag @book.image_url%>
  	<%#= audio_tag.@book.audio_url%>
 <div class="screenshot"><%#= link_to image_tag("#{@book.name.downcase}.png", :size => "200x125", :alt => @book.name), {:autoplay => true}, :class => "play_video" %></div>
       <h1>
@@ -18,11 +18,11 @@
       <%= @book.name %>
     </h1>
     <div class="details">
-      <%= @book.published_at.strftime('%b %d, %Y') %> |
+      <%#= @book.published_at.strftime('%b %d, %Y') %> |
       <%= raw @book.tags.map { |tag| link_to tag.display_name, root_path(:tag_id => tag) }.join(", ") %>
-      <% unless @book.published? %>
+      <%# unless @book.published? %>
         <span class="unreleased">NOT YET RELEASED</span>
-      <% end %>
+      <%# end %>
     </div>
     
     <div class="description"><%= @book.description %></div>
