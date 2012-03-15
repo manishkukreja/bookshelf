@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   # GET /books/new
   # GET /books/new.xml
   def new
-    
+    @book = Book.new
     @book.position = Book.maximum(:position).to_i + 1
   
   end
