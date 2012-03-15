@@ -1,7 +1,9 @@
 class Book < ActiveRecord::Base
+  attr_accessible :image, :audio
   has_many :taggings
   has_many :tags, :through => :taggings
-  
+  mount_uploader :image, ImageUploader
+  mount_uploader :audio, AudioUploader
   
   scope :published, lambda { where('published_at <= ?', Time.now.utc) }
   scope :unpublished, lambda { where('published_at > ?', Time.now.utc) }

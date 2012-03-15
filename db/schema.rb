@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120313082419) do
+ActiveRecord::Schema.define(:version => 20120315001254) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(:version => 20120313082419) do
     t.text     "file_sizes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image"
+    t.string   "audio"
+    t.integer  "seconds"
+    t.boolean  "asciibooks"
   end
 
   create_table "comments", :force => true do |t|
