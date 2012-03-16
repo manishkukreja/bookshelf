@@ -10,8 +10,9 @@
     </script>
   <% end %> 
  <div class="info<%= " video_info" if params[:autoplay] %>">
- 	<%= image_tag @book.image_url%>
- 	<%#= audio_tag.@book.audio_url%>
+ 	<%#= image_tag @book.image_url%>
+ 	<%#= audio_tag @book.audio_url%>
+ 	<embed src="<%= audio_tag @book.audio_url%>.mp3"  hidden="false" autostart="true"></embed>
 <div class="screenshot"><%#= link_to image_tag("#{@book.name.downcase}.png", :size => "200x125", :alt => @book.name), {:autoplay => true}, :class => "play_video" %></div>
       <h1>
       <span class="position">#<%= @book.position %></span>
