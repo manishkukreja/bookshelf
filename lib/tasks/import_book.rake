@@ -32,4 +32,10 @@ namespace :import_book do
     
   end
   
+  
+  task :book_new => :environment do
+    Book.create(:name => "Panchtantra", :description => "Misc stroies for children",:notes=> "Best old stories", :published_at=> "2010-03-01 01:47:00", :position=> 1, :comments_count=> 3, :legacy=> false)
+  end
+  
+  
 end
