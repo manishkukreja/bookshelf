@@ -11,7 +11,38 @@
   <% end %> 
  <div class="info<%= " video_info" if params[:autoplay] %>">
  	<%= image_tag @book.image_url%>
- 	<%#= audio_tag.@book.audio_url%>
+ 	<%#= audio_tag @book.audio_url%>
+ 	<%#= player  %>
+ 	
+ 	
+ 	
+ 	<html>                                              
+<body>   
+
+
+
+                                           
+                                                    
+ <video width="320" height="240" controls="controls">
+<source src=<%=  @book.audio_url%> type="audio/mp3" />            
+ <object width="320" height="240" src="01_Thais.mp3">   
+<embed width="320" height="240" src="01_Thais.mp3">    
+ Your browser does not support video                
+</embed>                                          
+ </object>                                          
+ </video>                                          
+                                                    
+</body>                                             
+</html>   
+ 	<!-- <script type="text/javascript">
+    jwplayer("container").setup({
+        flashplayer: "javascripts/jwplayer/player.swf",
+        file: "/public/uploads/47/01_Thais.mp3",
+        height: 270,
+        width: 480
+    });
+</script> -->
+ 	
 <div class="screenshot"><%#= link_to image_tag("#{@book.name.downcase}.png", :size => "200x125", :alt => @book.name), {:autoplay => true}, :class => "play_video" %></div>
       <h1>
       <span class="position">#<%= @book.position %></span>
