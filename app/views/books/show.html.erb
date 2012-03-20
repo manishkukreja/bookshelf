@@ -23,14 +23,40 @@
 
                                            
                                                     
- <video width="320" height="240" controls="controls">
-<source src=<%=  @book.audio_url%> type="audio/mp3" />            
- <object width="320" height="240" src="01_Thais.mp3">   
-<embed width="320" height="240" src="01_Thais.mp3">    
- Your browser does not support video                
-</embed>                                          
- </object>                                          
- </video>                                          
+ # <video width="320" height="240" controls="controls">
+# <source src=<%=  @book.audio_url%> type="audio/mp3" />            
+ # <object width="320" height="240" src="01_Thais.mp3">   
+# <embed width="320" height="240" src="01_Thais.mp3">    
+ # Your browser does not support video                
+# </embed>                                          
+ # </object>                                          
+ # </video> 
+#  
+ 
+ <html>
+<body>
+
+<html>
+<body>
+
+<video width="320" height="240" controls="controls">
+	<source src=<%=  @book.audio_url%> type="audio/mp3" />
+  <source src=<%=  @book.audio_url%> type="audio/mp4" />
+  <source src=<%=  @book.audio_url%> type="audio/ogg" />
+  <source src=<%=  @book.audio_url%> type="audio/webm" />
+<object data=<%=  @book.audio_url%> width="320" height="240">
+<embed src=<%=  @book.audio_url%> width="320" height="240">
+Your browser does not support video
+</embed>
+</object> 
+</video>
+
+</body>
+</html>
+
+</body>
+</html>
+                                          
                                                     
 </body>                                             
 </html>   
