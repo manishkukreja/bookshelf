@@ -12,7 +12,7 @@
  <div class="info<%= " video_info" if params[:autoplay] %>">
  	<%= image_tag @book.image_url%>
  	<%#= audio_tag @book.audio_url%>
- 	<%= player() %>
+ 	<%#= player  %>
  	
  	
  	
@@ -23,14 +23,14 @@
 
                                            
                                                     
-<!-- # <video width="320" height="240" controls="controls">
-<!--  #<source src="/public/uploads/47/01_Thais.mp3" type="audio/mp3" />            
-<!-- # <object width="320" height="240" src="movie.mp4"> -->   
-<!-- # <embed width="320" height="240" src="movie.swf"> -->    
-<!-- # Your browser does not support video -->                 
-<!-- # </embed>  -->                                           
-<!-- # </object>  -->                                          
-<!-- # </video> -->                                           
+ <video width="320" height="240" controls="controls">
+<source src=<%=  @book.audio_url%> type="audio/mp3" />            
+ <object width="320" height="240" src="01_Thais.mp3">   
+<embed width="320" height="240" src="01_Thais.mp3">    
+ Your browser does not support video                
+</embed>                                          
+ </object>                                          
+ </video>                                          
                                                     
 </body>                                             
 </html>   
