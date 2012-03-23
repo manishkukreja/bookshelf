@@ -1,4 +1,5 @@
-<h1><%=  @book.name %></h1> 
+<% title @book.full_name, false %>
+<h1><%#=  @book.name %></h1> 
 
 
 <div id="episode" class="<%= "legacy" if @book.legacy? %>">
@@ -7,85 +8,47 @@
   <% else %>
     <script type="text/html" id="video_template">
       <%= book_video_tag @book %>
+      
+      <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true')%>
+  
+  
+  <embed src='<%= @book.audio_url%>' height='300' width='400' bgcolor='0xffffff' allowscriptaccess='always' allowfullscreen='true' flashvars="&author=Bagwan%20Pankaj&autostart=f&backcolor=0xffffff&description=JW%20Flash%20Player%20Helper.This%20is%20a%20demo%20video%3B%20came%20bundled%20with%20JW%20Flash%20Player%20Setup&file=http%3A%2F%2Flocalhost%3A3000%2Fothers%2Fvideo.flv&plugins=viral-2d&title=Demo%20of%20flash_player_helper%20Plugin"/>
+  
+  
+      
     </script>
   <% end %> 
  <div class="info<%= " video_info" if params[:autoplay] %>">
- 	<%= image_tag @book.image_url%>
- 	<%#= audio_tag @book.audio_url%>
- 	<%#= player  %>
- 	
- 	
- 	
- 	<html>                                              
-<body>   
+ 	<div class="screenshot"><%= image_tag @book.image_url ,:size => "200x150"%></div>
 
+	<!-- <video width="200" height="40" controls="controls">
+		<source src=<%=  @book.audio_url%> type="audio/mp3" />
+	  	<source src=<%=  @book.audio_url%> type="audio/mp4" />
+	 	 <source src=<%=  @book.audio_url%> type="audio/ogg" />
+	  	<source src=<%=  @book.audio_url%> type="audio/webm" />
+	<object data=<%=  @book.audio_url%> width="320" height="240"> 
+	<embed src=<%=  @book.audio_url%> width="320" height="240">
+				Your browser does not support video
+	</embed>
+	</object> 
+	</video> -->
 
-
-                                           
-                                                    
- # <video width="320" height="240" controls="controls">
-# <source src=<%=  @book.audio_url%> type="audio/mp3" />            
- # <object width="320" height="240" src="01_Thais.mp3">   
-# <embed width="320" height="240" src="01_Thais.mp3">    
- # Your browser does not support video                
-# </embed>                                          
- # </object>                                          
- # </video> 
-#  
- 
- <html>
-<body>
-
-<html>
-<body>
-
-<video width="320" height="240" controls="controls">
-	<source src=<%=  @book.audio_url%> type="audio/mp3" />
-  <source src=<%=  @book.audio_url%> type="audio/mp4" />
-  <source src=<%=  @book.audio_url%> type="audio/ogg" />
-  <source src=<%=  @book.audio_url%> type="audio/webm" />
-<object data=<%=  @book.audio_url%> width="320" height="240">
-<embed src=<%=  @book.audio_url%> width="320" height="240">
-Your browser does not support video
-</embed>
-</object> 
-</video>
-
-</body>
-</html>
-
-</body>
-</html>
-                                          
-                                                    
-</body>                                             
-</html>   
- 	<!-- <script type="text/javascript">
-    jwplayer("container").setup({
-        flashplayer: "javascripts/jwplayer/player.swf",
-        file: "/public/uploads/47/01_Thais.mp3",
-        height: 270,
-        width: 480
-    });
-</script> -->
- 	
-<div class="screenshot"><%#= link_to image_tag("#{@book.name.downcase}.png", :size => "200x125", :alt => @book.name), {:autoplay => true}, :class => "play_video" %></div>
       <h1>
       <span class="position">#<%= @book.position %></span>
       <%= @book.name %>
     </h1>
     <div class="details">
-      <%#= @book.published_at.strftime('%b %d, %Y') %> |
+      <%= @book.published_at.strftime('%b %d, %Y') %> |
       <%= raw @book.tags.map { |tag| link_to tag.display_name, root_path(:tag_id => tag) }.join(", ") %>
-      <%# unless @book.published? %>
+      <% unless @book.published? %>
         <span class="unreleased">NOT YET RELEASED</span>
-      <%# end %>
+      <% end %>
     </div>
     
     <div class="description"><%= @book.description %></div>
     <div class="watch">
-      <%= link_to({:read => true}, {:class => "play_video watch_button"}) do %>
-        Click to Read &#9654;
+      <%= link_to({:autoplay => true}, {:class => "play_audio watch_button"}) do %>
+        Click to Play Audio &#9654;
       <% end %>
     </div>
     <div class="social">
@@ -93,7 +56,7 @@ Your browser does not support video
     </div>
     <ul class="downloads horizontal">
       <li>Download:</li>
-      
+      <span class="overlay"></span>
     </ul>
     <div class="clear"></div>
   </div>
@@ -105,7 +68,7 @@ Your browser does not support video
     <%= content_tag :li, link_to("< Previous book", @book.previous), :class => "previous" if @book.previous %>
   </ul>
   <div class="nav_section">
-    <%#= %w[comments similar].include?(params[:view]) ? render(params[:view]) : render("show_notes") %>
+    <%= %w[comments similar].include?(params[:view]) ? render(params[:view]) : render("show_notes") %>
   </div>
 </div>
 

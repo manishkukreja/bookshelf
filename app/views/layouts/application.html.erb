@@ -10,6 +10,7 @@
 	  <%= stylesheet_link_tag :all %>
 	  <%= javascript_include_tag :defaults %>
 	  <%= javascript_include_tag 'swfobject.js' %>  <!-- This is for flash player -->
+	  <%= javascript_include_tag 'swfobject' %>
 	  <%= csrf_meta_tag %>
   
   
@@ -49,6 +50,15 @@
         <%= submit_tag "Search Books", :name => nil %>
       <% end %>
     </div>
+    
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, raw(msg), :id => "flash_#{name}") %>
+    <% end %>
+
+    <div id="main">
+      <% if show_title? %>
+        <h1 class="content"><%= yield(:title) %></h1>
+      <% end %>
 <!-- navigation bar code ends  -->
 	
 	
@@ -64,6 +74,13 @@
   	</div>
 <!-- User profile related code ends here -->
 <%= yield %>
+
+<div id="footer">
+      <div class="inner">
+        &copy;<%= Date.today.year %> BookShelf - Hosted by <%= link_to "TracKKr", %> - This site is <%= link_to "open source", "https://github.com/manishkukreja/bookshelf" %>
+      </div>
+    </div>
+
 
 </body>
 </html>

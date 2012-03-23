@@ -1,3 +1,19 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
+  belongs_to :book, :counter_cache => true
+  
+  scope :recent, order("created_at DESC")
+  
+  #has_paper_trail
+  #has_ancestry
+  
+  
+    def self.search(query)
+    if query.blank?
+      scoped
+    else
+      conditions = %w[content name email site_url].map { |c| "comments.#{c} like :query" }
+      where(conditions.join(" or "), :query => "%#{query}%")
+    end
+  end
 end
