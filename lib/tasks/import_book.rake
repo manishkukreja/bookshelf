@@ -27,16 +27,16 @@ namespace :import_book do
     Tagging.delete_all
     book = Book.all
     tag =Tag.all
-    t1=Tagging.create(:book_id => Book.find(book.first.id), :tag_id => tag.first.id)
-    t2=Tagging.create(:book_id => Book.find(book.first.id + 1), :tag_id => tag.first.id)
-    t3=Tagging.create(:book_id => Book.find(book.first.id + 2), :tag_id => tag.second.id)
-    t4=Tagging.create(:book_id => Book.find(book.first.id + 3), :tag_id => tag.third.id)
-    t5=Tagging.create(:book_id => Book.find(book.first.id + 4), :tag_id => tag.fourth.id)
-    t6=Tagging.create(:book_id => Book.find(book.first.id + 5), :tag_id => tag.first.id)
-    t6=Tagging.create(:book_id => Book.find(book.first.id + 6), :tag_id => tag.first.id)
-    t6=Tagging.create(:book_id => Book.find(book.first.id + 7), :tag_id => tag.second.id)
-    t6=Tagging.create(:book_id => Book.find(book.first.id + 8), :tag_id => tag.fourth.id)
-    t6=Tagging.create(:book_id => Book.find(book.first.id + 9), :tag_id => tag.third.id)
+    t1=Tagging.create(:book_id => Book.find(book.first.id).id, :tag_id => tag.first.id)
+    t2=Tagging.create(:book_id => Book.find(book.first.id + 1).id, :tag_id => tag.first.id)
+    t3=Tagging.create(:book_id => Book.find(book.first.id + 2).id, :tag_id => tag.second.id)
+    t4=Tagging.create(:book_id => Book.find(book.first.id + 3).id, :tag_id => tag.third.id)
+    t5=Tagging.create(:book_id => Book.find(book.first.id + 4).id, :tag_id => tag.fourth.id)
+    t6=Tagging.create(:book_id => Book.find(book.first.id + 5).id, :tag_id => tag.first.id)
+    t6=Tagging.create(:book_id => Book.find(book.first.id + 6).id, :tag_id => tag.first.id)
+    t6=Tagging.create(:book_id => Book.find(book.first.id + 7).id, :tag_id => tag.second.id)
+    t6=Tagging.create(:book_id => Book.find(book.first.id + 8).id, :tag_id => tag.fourth.id)
+    t6=Tagging.create(:book_id => Book.find(book.first.id + 9).id, :tag_id => tag.third.id)
     
   end
   

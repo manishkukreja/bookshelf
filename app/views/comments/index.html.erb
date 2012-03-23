@@ -1,3 +1,31 @@
+<% title "Recent Comments" %>
+
+<div class="content">
+  <%= form_tag comments_path, :method => :get do %>
+    <p>
+      <%= text_field_tag :comment_search, params[:comment_search] %>
+      <%= submit_tag "Search Comments", :name => nil %>
+    </p>
+  <% end %>
+  <div id="comments">
+    <%= will_paginate :previous_label => h("< Previous Page"),  :next_label => h("Next Page >") %>
+    <%= render @comments %>
+    <%= will_paginate :previous_label => h("< Previous Page"),  :next_label => h("Next Page >") %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 <h1>Listing comments</h1>
 
 <table>
@@ -34,6 +62,5 @@
 <% end %>
 </table>
 
-<br />
-
+<br /> -->
 <%= link_to 'New Comment', new_comment_path %>

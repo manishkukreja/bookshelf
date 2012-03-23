@@ -39,12 +39,7 @@
     </div>
   </div>   
 
-<% form_tag books_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+
 
 <div class="books">
     <% if @tag || params[:search].present? %>

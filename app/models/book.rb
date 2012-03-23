@@ -4,6 +4,7 @@ class Book < ActiveRecord::Base
   has_many :tags, :through => :taggings
   mount_uploader :image, ImageUploader
   mount_uploader :audio, AudioUploader
+  has_many :comments
   
   scope :published, lambda { where('published_at <= ?', Time.now.utc) }
   scope :unpublished, lambda { where('published_at > ?', Time.now.utc) }
@@ -12,12 +13,12 @@ class Book < ActiveRecord::Base
   
   
   def self.search(search)
-  if search
-    find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
-  else
-    find(:all)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
   end
-end
 
 ########INDEX METHODS
  def published?
@@ -77,7 +78,9 @@ def full_name
   end
   
   def asset_url(path, ext = nil)
-    "http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
+    "/public/uploads/book/audio/76/Midnight.mp3"
+    #"@book.audio_url"
+    #"http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
   end
   
 #######  
