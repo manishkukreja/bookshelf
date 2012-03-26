@@ -84,6 +84,20 @@ def full_name
   end
   
 #######  
-  
+  ##Method for similer books##
+  def similar_books
+    if APP_CONFIG['thinking_sphinx']
+      self.class.search("#{name} #{tag_names}", :without_ids => [id],
+            :conditions => { :published_at => 0..Time.now.utc.to_i },
+            :match_mode => :any, :page => 1, :per_page => 5,
+            :field_weights => { :name => 20, :description => 15, :notes => 5, :tag_names => 10 })
+    else
+      self.class.published.limit(5).primitive_search(name, "OR")
+    end
+  rescue ThinkingSphinx::ConnectionError => e
+    APP_CONFIG['thinking_sphinx'] = false
+    raise e
+  end
+  ##Method ends for similer books ##
   
 end
