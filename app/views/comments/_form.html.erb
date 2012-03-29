@@ -4,7 +4,7 @@
   # <p>You have been banned from creating comments. Please <%= link_to "contact me", feedback_path %> if you are a legitimate user.</p>
 <% else %>
   <%= div_for @comment do %>
-    <div class="avatar"><%#= image_tag avatar_url(@comment), :size => "64x64", :alt => "Avatar" %></div>
+<!--     <div class="avatar"><%#= image_tag avatar_url(@comment), :size => "64x64", :alt => "Avatar" %></div> -->
     <div class="main">
       <%= render "comments/comment_headline", :comment => @comment %>
       <div class="comment_content">
@@ -71,6 +71,7 @@ puts "code block"
           </div>
           <%# end %> -->
           <div class="actions">
+          	<%#= f.submit%>
             <%= f.submit(@comment.new_record? ? "Post Comment" : "Update Comment") %>
           </div>
         <% end %>

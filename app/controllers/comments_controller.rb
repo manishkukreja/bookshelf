@@ -15,8 +15,9 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.xml
   def new
-    @comment = Comment.new( :book_id => params[:book_id], :user => current_user)
-
+    #@comment = Comment.new( :book_id => params[:book_id], :user => current_user)
+    
+    @comment = Comment.new(:book_id => params[:book_id], :user => current_user)
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @comment }
@@ -45,19 +46,23 @@ class CommentsController < ApplicationController
   # end
   
   def create
+    #@book = Book.find(params[:book_id])
     @comment = current_user.comments.build(params[:comment])
+    #@comment = current_user.comments.build(:book_id => @book.id, :f_name => current_user.first_name, :l_name => current_user.last_name, :user_id => current_user.id)
     @comment.request = request
     @comment.save
     respond_to do |format|
       format.html do
-        # if @comment.errors.present?
-          # render :new
-        # else
+         if @comment.errors.present?
+           render :new
+         else
           # @comment.notify_other_commenters
-          # redirect_to(episode_path(@comment.episode, :view => "comments"))
-        # end
+            #redirect_to (@book)
+           redirect_to(book_path(@comment.book, :view => "comments"))
+         end
       end
-      format.js
+      format.js #{ redirect_to book_path, :notice => 'comment was successfully created.' }
+      #format.js (redirect_to book_path)
     end
   end
   

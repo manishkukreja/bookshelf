@@ -1,0 +1,10 @@
+
+
+
+  var container = $("#comments");
+
+<% if @comment.errors.present? %>
+  container.find("form").prepend("<%= escape_javascript error_messages_for(@comment) %>");
+<% else %>
+  container.children("#new_comment").replaceWith("<%= escape_javascript render(@comment) %>");
+<% end %>

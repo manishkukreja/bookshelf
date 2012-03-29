@@ -1,5 +1,5 @@
 <div id="comments">
   <%#= nested_comments @book.comments.includes(:user).arrange(:order => "created_at asc") %>
-  <%= nested_comments @book.comments.includes(:user)%>
+  <%#= nested_comments @book.comments.includes(:user)%>
   <%= render "comments/form" %>
 </div>
