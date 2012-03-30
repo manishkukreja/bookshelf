@@ -15,13 +15,9 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.xml
   def new
-    @comment = Comment.new( :book_id => params[:book_id], :user => current_user)
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @comment }
-    end
+    @comment = Comment.new(:parent_id => params[:parent_id], :episode_id => params[:episode_id], :user => current_user)
   end
+
 
   # GET /comments/1/edit
   def edit
@@ -50,12 +46,12 @@ class CommentsController < ApplicationController
     @comment.save
     respond_to do |format|
       format.html do
-        # if @comment.errors.present?
-          # render :new
-        # else
-          # @comment.notify_other_commenters
-          # redirect_to(episode_path(@comment.episode, :view => "comments"))
-        # end
+        if @comment.errors.present?
+           render :new
+         else
+           @comment.notify_other_commenters
+           redirect_to(book_path(@comment.book, :view => "comments"))
+         end
       end
       format.js
     end
