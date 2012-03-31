@@ -24,7 +24,7 @@ class BooksController < ApplicationController
       redirect_to book_url(@book)
     else
       
-      @comment = Comment.new(:book_id => @book.id, :user_id => current_user)#, :f_name => User.find(current_user).first_name)
+      @comment = Comment.new(:book_id => @book.id, :user_id => current_user)
     end
   end
 
