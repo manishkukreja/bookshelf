@@ -18,7 +18,9 @@ class CommentsController < ApplicationController
     @comment = Comment.new(:parent_id => params[:parent_id],:book_id => params[:book_id], :user => current_user)
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
+       #redirect_to(book_path(@comment.book, :view => "comments"))
+      # new.html.erb
       format.xml  { render :xml => @comment }
     end
 end
@@ -60,10 +62,9 @@ end
          end
         end 
        end
-       format.js 
-    
-   end
-     
+      end 
+       #format.js 
+     end
    # @@@
     # respond_to do |format|
       # if @comment.save 
