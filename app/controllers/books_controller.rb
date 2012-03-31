@@ -9,14 +9,14 @@ class BooksController < ApplicationController
       @books = Book.search_published(params[:search],params[:tag_id])
     end
     respond_to do |format|
+      
      format.html { @books = @books.paginate(:page => params[:page], :per_page => books_per_page) }
      format.rss
       
     end
   end
 
-  # GET /books/1
-  # GET /books/1.xml
+
   def show 
     @book = Book.find(params[:id])
     if params[:id] != @book.to_param   # Not understood 
@@ -24,25 +24,21 @@ class BooksController < ApplicationController
       redirect_to book_url(@book)
     else
       
-      @comment = Comment.new(:book_id => @book.id, :user_id => current_user)
+      @comment = Comment.new(:book_id => @book.id, :user_id => current_user)#, :f_name => User.find(current_user).first_name)
     end
   end
 
-  # GET /books/new
-  # GET /books/new.xml
   def new
     @book = Book.new
     @book.position = Book.maximum(:position).to_i + 1
   
   end
 
-  # GET /books/1/edit
+
   def edit
     @book = Book.find(params[:id])
   end
 
-  # POST /books
-  # POST /books.xml
   def create
     @book = Book.new(params[:book])
 
@@ -57,8 +53,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # PUT /books/1
-  # PUT /books/1.xml
   def update
     @book = Book.find(params[:id])
 
@@ -73,8 +67,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1
-  # DELETE /books/1.xml
   def destroy
     @book = Book.find(params[:id])
     @book.destroy

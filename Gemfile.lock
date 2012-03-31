@@ -28,6 +28,8 @@ GEM
       activemodel (= 3.0.10)
       activesupport (= 3.0.10)
     activesupport (3.0.10)
+    ancestry (1.2.4)
+      activerecord (>= 2.2.2)
     arel (2.0.10)
     authlogic (2.1.6)
       activesupport
@@ -84,6 +86,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  ancestry
   authlogic
   carrierwave
   rails (= 3.0.10)

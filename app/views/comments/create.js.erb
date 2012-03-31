@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <% if parent_id.present? %>
   var container = $("#<%= dom_id(@comment.parent) %>").next(".nested_comments");
 <% else %>
@@ -8,7 +9,13 @@
 
 
 
+=======
+<% if @comment.parent_id.present? %>
+  var container = $("#<%= dom_id(@comment.parent) %>").next(".nested_comments");
+<% else %>
+>>>>>>> bookshelf_1
   var container = $("#comments");
+<% end %>
 
 >>>>>>> bookshelf-1
 <% if @comment.errors.present? %>

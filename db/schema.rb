@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120326041458) do
+=======
+ActiveRecord::Schema.define(:version => 20120330071832) do
+>>>>>>> bookshelf_1
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -43,8 +47,14 @@ ActiveRecord::Schema.define(:version => 20120326041458) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.string   "user_agent"
+=======
+    t.string   "ancestry"
+>>>>>>> bookshelf_1
   end
+
+  add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
 
   create_table "taggings", :force => true do |t|
     t.integer  "book_id"

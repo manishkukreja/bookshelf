@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   scope :recent, order("created_at DESC")
   
   #has_paper_trail
-  #has_ancestry
+  has_ancestry
   
    def request=(request)
     self.user_ip    = request.remote_ip

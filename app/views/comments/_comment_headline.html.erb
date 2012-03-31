@@ -15,13 +15,13 @@
   </span>
   <% unless comment.created_at.nil? %>
   	<%#= link_to book_path, :class => "created_at" do %>
-    <%#= link_to book_path(comment.book, :view => "comments", :anchor => "comment_#{comment.id}"), :class => "created_at" do %>
+    <%= link_to book_path(comment.book, :view => "comments", :anchor => "comment_#{comment.id}"), :class => "created_at" do %>
       <% if params[:controller] == "book" %>
         <%= time_ago_in_words comment.created_at %> ago
       <% else %>
         <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%I") %>
       <% end %>
     <% end %>
-  
+  <% end %>
     
 </div>
