@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   scope :recent, order("created_at DESC")
   
   #has_paper_trail
-  #has_ancestry
+  has_ancestry
   
   
     def self.search(query)

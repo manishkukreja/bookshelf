@@ -12,7 +12,7 @@
           <%= f.error_messages %>
           <div>
             <%= f.hidden_field :book_id %>
-            <%#= f.hidden_field :parent_id %>
+            <%= f.hidden_field :parent_id %>
           </div>
           <% if @comment.user_id && @comment.user_id != current_user.id %>
             <p><strong>Please follow the <%= link_to "moderator guidelines", moderators_path %>.</strong></p>
