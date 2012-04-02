@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330071832) do
+ActiveRecord::Schema.define(:version => 20120402144133) do
 
   create_table "books", :force => true do |t|
     t.string   "name"
@@ -44,9 +44,18 @@ ActiveRecord::Schema.define(:version => 20120330071832) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
+    t.string   "site_url"
   end
 
   add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"
+
+  create_table "feedback_messages", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "taggings", :force => true do |t|
     t.integer  "book_id"
@@ -76,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20120330071832) do
     t.string   "persistence_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "email_on_reply"
+    t.string   "site_url"
   end
 
 end

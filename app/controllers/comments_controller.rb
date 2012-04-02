@@ -57,7 +57,7 @@ class CommentsController < ApplicationController
          if @comment.errors.present?
            render :new
          else
-          # #@comment.notify_other_commenters
+           @comment.notify_other_commenters
            redirect_to(book_path(@comment.book, :view => "comments"))
          end
        end
