@@ -89,6 +89,7 @@ DEPENDENCIES
   ancestry
   authlogic
   carrierwave
+  mail (= 2.2.19)
   rails (= 3.0.10)
   sqlite3
   thinking-sphinx

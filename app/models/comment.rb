@@ -2,6 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :book, :counter_cache => true
   
+  
   scope :recent, order("created_at DESC")
   
   #has_paper_trail
@@ -27,4 +28,15 @@ class Comment < ActiveRecord::Base
     #self.user_agent = request.env['HTTP_USER_AGENT']
     self.referrer   = request.env['HTTP_REFERER']
   end
+  
+  def notify_other_commenters
+    users_to_notify.each do |user|
+      UserMailer.comment_response(self, user).deliver
+    end
+  end
+
+  def users_to_notify
+    ancestors.map(&:user).compact.select { |u| u.email.present? && u.email_on_reply? && u != user }
+  end
+  
 end

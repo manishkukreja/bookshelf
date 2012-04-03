@@ -20,6 +20,14 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
+    <%= f.label :site_url, "Site URL" %>
+    <%= f.text_field :site_url %>  
+   </div>
+ <div class="field">
+    <%= f.check_box :email_on_reply %>
+    <%= f.label :email_on_reply, "Receive email when a user replies to your comment", :class => "check_box" %>
+  </div>
+  <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </div>

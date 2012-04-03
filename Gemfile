@@ -17,6 +17,8 @@ gem 'carrierwave'
 
 gem 'ancestry'
 
+gem "mail", "2.2.19"
+
 #gem 'rmagick'
 
 # Use unicorn as the web server
