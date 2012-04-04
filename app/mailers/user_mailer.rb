@@ -8,7 +8,8 @@ class UserMailer < ActionMailer::Base
   def comment_response(comment, user)
     @comment = comment
     @user = user
-    mail :to => @user.email, :from => "noreply@railscasts.com", :subject => "Comment Response on Bookshelf"
+    mail :to => @user.email, :from => "manishkukreja@gmail.com", :subject => "Comment Response on Bookshelf"
+    #mail :to => "ravi.kukreja@gmail.com", :from => "manishkukreja@gmail.com", :subject => "Comment Response on Bookshelf"
   end
   
 end
