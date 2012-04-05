@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
-  # GET /comments
-  # GET /comments.xml
+before_filter :require_user
+
   def index
     @comments = Comment.search(params[:comment_search]).recent.paginate(:page => params[:page], :per_page => 10)
 
