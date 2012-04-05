@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
-  # GET /tags
-  # GET /tags.xml
+
+before_filter :authorize
+
   def index
     @tags = Tag.all
 

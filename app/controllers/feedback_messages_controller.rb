@@ -1,5 +1,7 @@
 class FeedbackMessagesController < ApplicationController
  
+ before_filter :authorize
+ 
  def new
     @feedback_message = FeedbackMessage.new
     if current_user

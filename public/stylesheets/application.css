@@ -133,15 +133,18 @@ label.check_box {
 }
 
 #top .logo {
-  margin-top: 50px;
-  margin-left: 100px;
+  margin-top: 0px;
+  margin-left: 0px;
   padding-bottom: 10px;
+/*  background-color: #BBBBBB;*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#EFEFFB), to(#0101DF));
 }
 
 #top .subscribe {
   position: absolute;
   bottom: 10px;
-  right: 100px;
+  right: 40px;
+  top:15px
 }
 
 #top .subscribe li {
@@ -167,10 +170,10 @@ label.check_box {
   padding: 8px 100px;
   background-color: #333;
   border-top: solid 1px #FFF;
-  background: -webkit-gradient(linear, left top, left bottom, from(#5C5C5C), to(#111));
-  background: -moz-linear-gradient(top,  #5C5C5C, #111);
+  background: -webkit-gradient(linear, left top, left bottom, from(#070B19), to(#0101DF));
+  background: -moz-linear-gradient(top,  #267923 #111);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5C5C5C', endColorstr='#111');
-  border-bottom: solid 3px #DE9F00;
+  border-bottom: solid 3px #D0CFFE;
   margin-bottom: 15px;
 }
 
@@ -192,6 +195,8 @@ label.check_box {
 #main {
   padding-top: 15px;
   max-width: 1500px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EFF5FB), to(#CEE3F6));
+  
 }
 
 #footer {
@@ -422,14 +427,14 @@ label.check_box {
   padding: 0 20px;
   margin: 0;
   font-weight: normal;
-  color: #444;
+  color: #151515;
   font-size: 12px;
   text-align: center;
   border-radius: 6px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border: solid 1px #BBB;
-  background-color: #DDD;
+  background-color: #2E2EFE;
   background: -webkit-gradient(linear, left top, left bottom, from(#EEE), to(#CCC));
   background: -moz-linear-gradient(top,  #EEE, #CCC);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE', endColorstr='#CCC');
