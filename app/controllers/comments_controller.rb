@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-before_filter :require_user
+#before_filter :require_user
 
   def index
     @comments = Comment.search(params[:comment_search]).recent.paginate(:page => params[:page], :per_page => 10)
@@ -77,31 +77,5 @@ before_filter :require_user
     end
   end
 
-  # # PUT /comments/1
-  # # PUT /comments/1.xml
-  # def update
-    # @comment = Comment.find(params[:id])
-# 
-    # respond_to do |format|
-      # if @comment.update_attributes(params[:comment])
-        # format.html { redirect_to(@comment, :notice => 'Comment was successfully updated.') }
-        # format.xml  { head :ok }
-      # else
-        # format.html { render :action => "edit" }
-        # format.xml  { render :xml => @comment.errors, :status => :unprocessable_entity }
-      # end
-    # end
-  # end
-# 
-  # # DELETE /comments/1
-  # # DELETE /comments/1.xml
-  # def destroy
-    # @comment = Comment.find(params[:id])
-    # @comment.destroy
-# 
-    # respond_to do |format|
-      # format.html { redirect_to(comments_url) }
-      # format.xml  { head :ok }
-    # end
-  # end
+  
 end

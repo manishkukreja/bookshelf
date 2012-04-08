@@ -54,9 +54,9 @@
         <li><%= link_to_unless_current "Browse Books", root_url %></li>
         <li><%= link_to_unless_current "About BookShelf", about_path %></li>
         <li><%= link_to_unless_current "Feedback", feedback_path %></li>
-        <%# if can? :index, :comments %>
-          <li><%#= link_to_unless_current "Recent Comments", comments_path %></li>
-        <%# end %>
+        <% if can? :index, :comments %>
+          <li><%= link_to_unless_current "Recent Comments", comments_path %></li>
+        <% end %>
       </ul>
       <%= form_tag books_path, :method => "get" do %>
         <%= text_field_tag :search, params[:search], :size => 25 %>

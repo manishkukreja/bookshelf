@@ -9,6 +9,8 @@ gem 'rails', '3.0.10'
 
 gem 'authlogic'
 
+gem "cancan", :git => "git://github.com/ryanb/cancan.git", :branch => "2.0"
+
 gem 'thinking-sphinx'
 
 gem "will_paginate", ">= 3.0.pre2"

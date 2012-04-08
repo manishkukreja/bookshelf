@@ -1,6 +1,6 @@
-<%# if can? :edit, @book %>
+<% if can? :edit, @book %>
   <div class="actions book_actions"><%= link_to "Edit", edit_book_path(@book) %></div>
-<%# end %>
+<% end %>
 
 <div class="extra_nav">
   # <%# if @book.asciicasts? %>

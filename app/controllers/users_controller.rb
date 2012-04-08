@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-before_filter :authorize
+#before_filter :authorize
+
+before_filter :load_current_user, :only => [:edit, :update]
+load_and_authorize_resource
 
   def index
     @users = User.all
@@ -70,4 +73,11 @@ before_filter :authorize
       format.xml  { head :ok }
     end
   end
+  
+   private
+  def load_current_user
+    @user = current_user
+  end
 end
+  
+
