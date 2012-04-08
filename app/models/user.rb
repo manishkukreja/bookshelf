@@ -3,4 +3,12 @@ class User < ActiveRecord::Base
   acts_as_authentic
   has_many :comments
   
+  def banned?
+    banned_at
+  end
+  
+  def role?(role)
+    role.include? roles.to_s
+  end
+  
 end

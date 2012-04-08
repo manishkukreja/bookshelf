@@ -28,6 +28,14 @@
     <%= f.label :email_on_reply, "Receive email when a user replies to your comment", :class => "check_box" %>
   </div>
   <div class="field">
+    <%= f.label :role %>
+   <p> <%= f.radio_button :role, 'admin' %>
+    <%= f.label :admin%></p>
+    <p><%= f.radio_button :role, 'user' %>
+    <%= f.label :user%></p>
+  </div>
+  
+  <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </div>

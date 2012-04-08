@@ -11,10 +11,10 @@
     
       <%= book_video_tag @book %>
       
-      <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true')%>
+      <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true', :play => 'false')%>
   
   
-  <embed src='<%= @book.audio_url%>' height='200' width='300' bgcolor='0xffffff' allowscriptaccess='always' allowfullscreen='true' flashvars="&author=Bagwan%20Pankaj&autostart=false&backcolor=0xffffff&description=JW%20Flash%20Player%20Helper.This%20is%20a%20demo%20video%3B%20came%20bundled%20with%20JW%20Flash%20Player%20Setup&file=http%3A%2F%2Flocalhost%3A3000%2Fothers%2Fvideo.flv&plugins=viral-2d&title=Demo%20of%20flash_player_helper%20Plugin"/>
+  <embed src='<%= @book.audio_url%>' height='200' width='300' flashvars="play=false" bgcolor='0xffffff' allowscriptaccess='always' allowfullscreen='true' flashvars="&author=Bagwan%20Pankaj&autostart=false&backcolor=0xffffff&description=JW%20Flash%20Player%20Helper.This%20is%20a%20demo%20video%3B%20came%20bundled%20with%20JW%20Flash%20Player%20Setup&file=http%3A%2F%2Flocalhost%3A3000%2Fothers%2Fvideo.flv&plugins=viral-2d&title=Demo%20of%20flash_player_helper%20Plugin"/>
   
   
       

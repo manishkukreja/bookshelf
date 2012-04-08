@@ -1,6 +1,6 @@
 class FeedbackMessagesController < ApplicationController
  
- before_filter :require_user
+ #before_filter :authorize
  
  def new
     @feedback_message = FeedbackMessage.new
