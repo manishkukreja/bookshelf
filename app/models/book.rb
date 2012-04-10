@@ -77,9 +77,17 @@ def full_name
     self.class.where("position > ?", position).order("position").first
   end
   
+  def padded_position
+    position.to_s.rjust(3, "0")
+  end
+  
+  def asset_name
+    [padded_position, permalink].join('-')
+  end
+  
   def asset_url(path, ext = nil)
-    "/public/uploads/book/audio/76/Midnight.mp3"
-    #"@book.audio_url"
+    "/public/uploads/book/#{path}/#{asset_name}" + (ext ? ".#{ext}": "")
+    #@book.audio_url
     #"http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
   end
   

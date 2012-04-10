@@ -607,7 +607,7 @@ label.check_box {
   margin-left: 8px;
 }
 
-#book .info .downloads li .overlay {
+#episode .info .downloads li .overlay {
   font-size: 12px;
   display: none;
   color: #999;
@@ -618,7 +618,7 @@ label.check_box {
   text-align: right;
 }
 
-#book .info .downloads li:hover .overlay {
+#episode .info .downloads li:hover .overlay {
   display: block;
 }
 
@@ -626,7 +626,7 @@ label.check_box {
   display: none;
 }
 
-#book .nav {
+#episode .nav {
   padding: 0 8px;
   margin: 0;
   height: 35px;
@@ -647,18 +647,18 @@ label.check_box {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEE', endColorstr='#CCC');
 }
 
-#book .nav li {
+#episode .nav li {
   margin: 0 6px;
   margin-top: 9px;
 }
 
-#book .nav li a {
+#episode .nav li a {
   color: #393939;
   padding: 5px 8px;
   padding-bottom: 10px;
 }
 
-#book .nav li a.selected {
+#episode .nav li a.selected {
   border: solid 1px #CCC;
   border-bottom: none;
   background-color: #F5F5F5;

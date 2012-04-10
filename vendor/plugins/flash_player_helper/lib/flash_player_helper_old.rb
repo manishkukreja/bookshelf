@@ -32,7 +32,7 @@ module RailsJaipur
                                             :author => 'Bagwan Pankaj',
                                             :file => '/others/video.flv',
                                             :backcolor => 'white',
-                                            # :autostart => 'false',
+                                            :autostart => 'true',
                                             :description => 'JW Flash Player Helper.This is a demo video; came bundled with JW Flash Player Setup',
                                             :height => '400',
                                             :width => '300'

@@ -4,22 +4,11 @@
 
 <div id="episode" class="<%= "legacy" if @book.legacy? %>">
 	<div class="screenshot"><%= image_tag @book.image_url ,:size => "300x200"%></div>
-  <% if params[:autoplay] %>
-    <div id="video_wrapper"><%= book_video_tag @book %></div>
-  <% else %>
-    <script type="text/html" id="video_template">
-    
-      <%= book_video_tag @book %>
-      
-      <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true', :play => 'false')%>
-  
-  
-  <embed src='<%= @book.audio_url%>' height='200' width='300' flashvars="play=false" bgcolor='0xffffff' allowscriptaccess='always' allowfullscreen='true' flashvars="&author=Bagwan%20Pankaj&autostart=false&backcolor=0xffffff&description=JW%20Flash%20Player%20Helper.This%20is%20a%20demo%20video%3B%20came%20bundled%20with%20JW%20Flash%20Player%20Setup&file=http%3A%2F%2Flocalhost%3A3000%2Fothers%2Fvideo.flv&plugins=viral-2d&title=Demo%20of%20flash_player_helper%20Plugin"/>
-  
-  
-      
-    </script>
-  <% end %> 
+  <%# if params[:autoplay] %>
+<!--
+=begin  
+ -->    
+  <%# end %> 
  <div class="info<%= " video_info" if params[:autoplay] %>">
  	
 
@@ -34,7 +23,8 @@
 	</embed>
 	</object> 
 	</video> -->
-
+<!--	
+=end -->
       <h1>
       <span class="position">#<%= @book.position %></span>
       <%= @book.name %>
@@ -49,8 +39,12 @@
     
     <div class="description"><%= @book.description %></div>
     <div class="watch">
+    	
       <%= link_to({:autoplay => true}, {:class => "play_audio watch_button"}) do %>
         Click to Play Audio &#9654;
+        <%if params[:autoplay]%>
+        <%=render "player" %>
+        <%end%>
       <% end %>
     </div>
     <div class="social">
@@ -71,7 +65,7 @@
   </ul>
   <div class="nav_section">
     <%= %w[comments similar].include?(params[:view]) ? render(params[:view]) : render("show_notes") %></b>
-    <p>The Book id is<%= params[:id]%></p>
+    
   </div>
 </div>
 
