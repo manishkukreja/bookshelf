@@ -576,11 +576,11 @@ label.check_box {
   text-shadow: 0 -1px 0 #036;
 }
 
-#book .info .details a {
+#episode .info .details a {
   color: #777;
 }
 
-#book .info .description {
+#episode .info .description {
   margin-top: 6px;
   margin-bottom: 18px;
   margin-right: 140px;
@@ -603,7 +603,7 @@ label.check_box {
   font-size: 13px;
 }
 
-#book .info .downloads li {
+#episode .info .downloads li {
   margin-left: 8px;
 }
 
