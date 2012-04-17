@@ -17,6 +17,7 @@
 	  	<source src=<%=  @book.audio_url%> type="audio/mp4" />
 	 	 <source src=<%=  @book.audio_url%> type="audio/ogg" />
 	  	<source src=<%=  @book.audio_url%> type="audio/webm" />
+	  	<source src=<%=  @book.audio_url%> type="audio/swf" />
 	<object data=<%=  @book.audio_url%> width="320" height="240"> 
 	<embed src=<%=  @book.audio_url%> width="320" height="240">
 				Your browser does not support video
@@ -41,11 +42,13 @@
     <div class="watch">
     	
       <%= link_to({:autoplay => true}, {:class => "play_audio watch_button"}) do %>
-        Click to Play Audio &#9654;
-        <%if params[:autoplay]%>
+        Click to Play Audio &#9654; 
+        <%if params[:autoplay] %>
         <%=render "player" %>
+        
         <%end%>
-      <% end %>
+    
+  <% end %>
     </div>
     <div class="social">
       <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= book_url(@book) %>" data-text="Reading <%= @book.name %> on Bookshelf" data-count="horizontal" data-via="railscasts">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -60,13 +63,15 @@
     <li class="selected"><%= tab_link "Show Notes", :view => nil %></li>   <!-- Tab_link method in application_helper -->
     <li><%= tab_link pluralize(@book.comments.size, "Comment"), :view => "comments" %></li>  <!-- Not able to find comments method -->
     <li><%= tab_link "Similar books", :view => "similar" %></li>
-    <%= content_tag :li, link_to("Next book >", @book.next), :class => "next" if !@book.last_published? && @book.next %>
     <%= content_tag :li, link_to("< Previous book", @book.previous), :class => "previous" if @book.previous %>
+    <%= content_tag :li, link_to("Next book >", @book.next), :class => "next" if !@book.last_published? && @book.next %>
+    
   </ul>
   <div class="nav_section">
     <%= %w[comments similar].include?(params[:view]) ? render(params[:view]) : render("show_notes") %></b>
     
   </div>
+  <%= link_to "List of Books", books_path%>
 </div>
 
 

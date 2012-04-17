@@ -12,6 +12,8 @@ class Book < ActiveRecord::Base
   scope :recent, order('position DESC')
   
   
+  
+  
   def self.search(search)
     if search
       find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
@@ -86,9 +88,10 @@ def full_name
   end
   
   def asset_url(path, ext = nil)
-    "/public/uploads/book/#{path}/#{asset_name}" + (ext ? ".#{ext}": "")
+    #"/public/uploads/book/#{path}/#{asset_name}" + (ext ? ".#{ext}": "")
     #@book.audio_url
     #"http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
+    #"https://s3.amazonaws.com/bookshelf_audio/#{asset_name}" + (ext ? ".#{ext}" : "")
   end
   
 #######  

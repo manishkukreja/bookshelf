@@ -9,6 +9,8 @@ gem 'rails', '3.0.10'
 
 gem 'authlogic'
 
+gem 'aws-s3'
+
 gem "cancan", :git => "git://github.com/ryanb/cancan.git", :branch => "2.0"
 
 gem 'thinking-sphinx'
@@ -22,6 +24,8 @@ gem 'ancestry'
 gem "mail", "2.2.19"
 
 gem 'pg'
+
+gem "fog", "~> 1.3.1"
 
 #gem 'rmagick'
 

@@ -510,56 +510,56 @@ label.check_box {
 
 /*** BOOK ***/
 
-#book {
+#eposide {
   margin: 0 auto;
   width: 962px;
 }
 
-#book.legacy {
+#eposide.legacy {
   width: 802px;
 }
 
-#book #video_wrapper {
+#eposide #video_wrapper {
   border: solid 1px #777;
   margin-bottom: 14px;
 }
 
-#book video {
+#eposide video {
   display: block;
 }
 
-#book > .info {
+#eposide > .info {
   position: relative;
   margin-bottom: 15px;
   background-color: #FFF;
 }
 
-#book .info .screenshot {
+#eposide .info .screenshot {
   float: left;
   padding-right: 14px;
 }
 
-#book .info h1 {
+#eposide .info h1 {
   margin: 0;
   padding: 0;
   font-size: 20px;
   margin-bottom: 3px;
 }
 
-#book .info h1 .position {
+#eposide .info h1 .position {
   color: #999;
 }
 
-#book .info .details {
+#eposide .info .details {
   color: #777;
   font-size: 12px;
 }
 
-#book .info .watch {
+#eposide .info .watch {
   padding-bottom: 8px;
 }
 
-#book .info .watch_button {
+#eposide .info .watch_button {
   font-size: 13px;
   padding: 5px 10px 6px 10px;
   font-weight: bold;
@@ -586,17 +586,17 @@ label.check_box {
   margin-right: 140px;
 }
 
-#book.legacy .info .description {
+#eposide.legacy .info .description {
   margin-right: 0;
 }
 
-#book .info .social {
+#eposide .info .social {
   position: absolute;
   right: -14px;
   bottom: 18px;
 }
 
-#book .info .downloads {
+#eposide .info .downloads {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -622,7 +622,7 @@ label.check_box {
   display: block;
 }
 
-#book .video_info .screenshot, #book .video_info .description, #book .video_info .watch {
+#eposide .video_info .screenshot, #eposide .video_info .description, #eposide .video_info .watch {
   display: none;
 }
 
@@ -672,15 +672,15 @@ label.check_box {
   cursor: default;
 }
 
-#book .nav li a.selected:hover {
+#eposide .nav li a.selected:hover {
   text-decoration: none;
 }
 
-#book .nav .previous, #book .nav .next {
+#eposide .nav .previous, #eposide .nav .next {
   float: right;
 }
 
-#book .nav_section {
+#eposide .nav_section {
   background-color: #F5F5F5;
   border: solid 1px #BBB;
   border-top: none;
@@ -688,7 +688,7 @@ label.check_box {
   position: relative;
 }
 
-#book .nav_section .progress {
+#eposide .nav_section .progress {
   z-index: 100;
   position: absolute;
   top: 40px;
@@ -701,33 +701,33 @@ label.check_box {
   padding: 50px;
 }
 
-#book.legacy .nav_section .progress {
+#eposide.legacy .nav_section .progress {
   left: 320px;
 }
 
-#book .asciicasts {
+#eposide .asciicasts {
   padding-right: 20px;
 }
 
-#book .browse_code img {
+#eposide .browse_code img {
   vertical-align: bottom;
 }
 
-#book .show_notes ul {
+#eposide .show_notes ul {
   margin-top: -10px; /* quick hack to move resources list under headline */
   padding-top: 0;
   margin-bottom: 20px;
 }
 
-#book .book_actions {
+#eposide .book_actions {
   float: right;
 }
 
-#book .similar {
+#eposide .similar {
   margin-top: 15px;
 }
 
-#book .similar .book:last-child {
+#eposide .similar .book:last-child {
   border-bottom: none;
 }
 
