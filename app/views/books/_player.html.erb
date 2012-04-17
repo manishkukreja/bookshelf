@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <div id="video_wrapper" >
      <script type="text/html" id="video_template">
      	
@@ -6,8 +6,8 @@
  	    <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true' )%>
 		  <embed 
 		  		src='<%= @book.audio_url%>' ,
-		  		height='400' ,
-		  		width='400' ,
+		  		height='600' ,
+		  		width='600' ,
 		  		
 		  />  
      </script>
@@ -15,28 +15,6 @@
 	
 
     
-=======
-<div id="video_wrapper"><%#= book_video_tag @book %></div>
-  <%# else %>
-    <script type="text/html" id="video_template">
-    
-      <%#= book_video_tag @book %>
-      
-      <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true')%>
-  
-  
-  <embed 
-  		src='<%= @book.audio_url%>' 
-  		play ="false" 
-  		height='825' 
-  		width='1300' 
-  		AUTOSTART='false'
-  		
-  />   <!--bgcolor='0xffffff' allowscriptaccess='always' allowfullscreen='true' flashvars="&author=Bagwan%20Pankaj&autostart=false&backcolor=0xffffff&description=JW%20Flash%20Player%20Helper.This%20is%20a%20demo%20video%3B%20came%20bundled%20with%20JW%20Flash%20Player%20Setup&file=http%3A%2F%2Flocalhost%3A3000%2Fothers%2Fvideo.flv&plugins=viral-2d&title=Demo%20of%20flash_player_helper%20Plugin"/> -->
-  
-  
-      
-    </script>
-  <%# end %> 
+
  <div class="info<%= " video_info" if params[:autoplay] %>">
->>>>>>> link2
+

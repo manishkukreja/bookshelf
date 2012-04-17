@@ -11,7 +11,7 @@ CarrierWave.configure do |config|
     :provider               => 'AWS',       # required
     :aws_access_key_id      => 'AKIAJITYSNB4IHHPX4KQ',       # required
     :aws_secret_access_key  => 'trackkr1',       # required
-    #:region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
+    :region                 => 'eu-west-1'  # optional, defaults to 'us-east-1'
   }
   config.fog_directory  = 'bookshelf_audio'                     # required
   #config.fog_host       = 'https://assets.example.com'            # optional, defaults to nil
