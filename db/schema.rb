@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120406125547) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "user_agent"
     t.string   "ancestry"
     t.string   "site_url"
   end

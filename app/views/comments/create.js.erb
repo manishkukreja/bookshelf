@@ -1,9 +1,23 @@
-<% if @comment.parent_id.present? %>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<% if parent_id.present? %>
   var container = $("#<%= dom_id(@comment.parent) %>").next(".nested_comments");
 <% else %>
   var container = $("#comments");
 <% end %>
+=======
 
+
+
+=======
+<% if @comment.parent_id.present? %>
+  var container = $("#<%= dom_id(@comment.parent) %>").next(".nested_comments");
+<% else %>
+>>>>>>> bookshelf_1
+  var container = $("#comments");
+<% end %>
+
+>>>>>>> bookshelf-1
 <% if @comment.errors.present? %>
   container.find("form").prepend("<%= escape_javascript error_messages_for(@comment) %>");
 <% else %>

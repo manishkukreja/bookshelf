@@ -16,11 +16,12 @@ class CommentsController < ApplicationController
   # GET /comments/new.xml
   def new
     @comment = Comment.new(:parent_id => params[:parent_id],:book_id => params[:book_id], :user => current_user)
+
     respond_to do |format|
       format.html 
       format.xml  { render :xml => @comment }
     end
-  end
+end
 
   def edit
     @comment = Comment.find(params[:id])
@@ -38,8 +39,9 @@ class CommentsController < ApplicationController
            @comment.notify_other_commenters
            redirect_to(book_path(@comment.book, :view => "comments"))
          end
+        end 
        end
-      end 
+       
        #format.js 
      end
    
@@ -79,3 +81,4 @@ class CommentsController < ApplicationController
 
   
 end
+

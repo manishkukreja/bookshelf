@@ -1,6 +1,8 @@
+
 title = "BookSHelf"
 author = "ADMIN"
 description = "Every week you will be treated to a new RailsCasts episode featuring tips and tricks with Ruby on Rails, the popular web development framework. These screencasts are short and focus on one technique so you can quickly move on to applying it to your own project. The topics are geared toward the intermediate Rails developer, but beginners and experts will get something out of it as well."
+
 keywords = "rails, ruby on rails, screencasts, podcasts, tips, tricks, tutorials, training, programming, railscast"
 
 if params[:ipod]
@@ -21,8 +23,13 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
     xml.link 'http://railscasts.com'
     xml.description description
     xml.language 'en'
+<<<<<<< HEAD
+    xml.pubDate @books.first.published_at.to_s(:rfc822)
+    xml.lastBuildDate @books.first.published_at.to_s(:rfc822)
+=======
     xml.pubDate @episodes.first.published_at.to_s(:rfc822)
     xml.lastBuildDate @episodes.first.published_at.to_s(:rfc822)
+>>>>>>> bookshelf_1
     xml.itunes :author, author
     xml.itunes :keywords, keywords
     xml.itunes :explicit, 'clean'
@@ -39,6 +46,21 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
       xml.itunes :category, :text => 'Training'
     end
 
+<<<<<<< HEAD
+    @books.each do  |book|
+      xml.item do
+        xml.title book.full_name
+        xml.description book.description
+        xml.pubDate book.published_at.to_s(:rfc822)
+        xml.enclosure :url => book.asset_url("videos", ext), :length => book.file_size(ext), :type => 'video/mp4'
+        xml.link book_url(book)
+        xml.guid({:isPermaLink => "false"}, book.permalink)
+        xml.itunes :author, author
+        xml.itunes :subtitle, truncate(book.description, :length => 150)
+        xml.itunes :summary, book.description
+        xml.itunes :explicit, 'no'
+        xml.itunes :duration, book.duration
+=======
     @episodes.each do  |episode|
       xml.item do
         xml.title episode.full_name
@@ -52,6 +74,7 @@ xml.rss "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd",  "xmlns:
         xml.itunes :summary, episode.description
         xml.itunes :explicit, 'no'
         xml.itunes :duration, episode.duration
+>>>>>>> bookshelf_1
       end
     end
   end

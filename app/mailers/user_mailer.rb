@@ -2,7 +2,7 @@ class UserMailer < ActionMailer::Base
   
   def feedback(message)
     @message = message
-    mail(:to => "manishkukreja@gmail.com", :from => @message.email, :subject => "Bookshelf Feedback from #{@message.name}")
+    mail(:to => "ravi.kukreja@gmail.com", :from => 'ravi.kukreja@gmail.com', :subject => "Bookshelf Feedback from #{@message.name}")
   end
 
   def comment_response(comment, user)
