@@ -91,7 +91,7 @@ def full_name
     #"/public/uploads/book/#{path}/#{asset_name}" + (ext ? ".#{ext}": "")
     #@book.audio_url
     #"http://media.railscasts.com/assets/episodes/#{path}/#{asset_name}" + (ext ? ".#{ext}" : "")
-    #"https://s3.amazonaws.com/bookshelf_audio/#{asset_name}" + (ext ? ".#{ext}" : "")
+    "https://s3.amazonaws.com/bookshelf_audio/#{asset_name}" + (ext ? ".#{ext}" : "")
   end
   
 #######  
