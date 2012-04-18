@@ -13,8 +13,8 @@ CarrierWave.configure do |config|
     :aws_secret_access_key  => '1s+Wiy6l5rhLCVxaMO59wQr/DdBWeKp7ZHrXq7sp',       # required
     :region                 => 'US-Standard'  # optional, defaults to 'us-east-1'
   }
-  config.fog_directory  = 'bookshelf_audio'                     # required
-  config.fog_host       = 'https://www.gmail.com'            # optional, defaults to nil
+  config.fog_directory  = 'bookshelf_test_bucket'                     # required
+  #config.fog_host       = 'https://www.gmail.com'            # optional, defaults to nil
   config.fog_public     = true                                   # optional, defaults to true
   config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
 end
