@@ -83,8 +83,8 @@ private
 
   def books_per_page
     case params[:view]
-    when "list" then 5
-    when "grid" then 6
+    when "list" then 10
+    when "grid" then 4
     else 4
     end
   end

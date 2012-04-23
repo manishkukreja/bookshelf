@@ -39,6 +39,12 @@
   </div><div class="field">
   	<%= f.file_field :audio%>
   </div>
+  
+  <div> 
+  	<%= f.label :remote_audio_url ,"OR Audio URL"%></br>
+  	<%= f.text_field :remote_audio_url%></br>
+  	</div>
+  	
   <div class="field">
     <%= f.label :file_sizes %><br />
     <%= f.text_area :file_sizes %>
