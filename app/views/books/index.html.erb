@@ -19,7 +19,7 @@
       </ul>
     </div>
     <div class="banner">
-      <a href="http://www.linode.com/?utm_source=railscasts.com&amp;utm_medium=Badge&amp;utm_campaign=Railscasts"><img alt="Linode" src="/assets/sponsors/linode.png?1291855080" /></a>
+      
     </div>
     <div class="banner">
       <form action="https://www.paypal.com/cgi-bin/webscr" method="post" class="badge">
@@ -84,7 +84,7 @@
         <div class="grid">
           <% for book in @books %>
             <div class="book">
-            	<%= image_tag book.image_url.to_s ,:size => "200x125",:alt => book.name%>
+            	<%= image_tag book.image_link.to_s ,:size => "200x125",:alt => book.name%>
               <div class="screenshot"><%#= link_to image_tag book.image_url ,:size => "200x125", :alt => book.name, {:autoplay => true}, :class => "play_video" %></div>
               <div class="name">
                 <%= book.position %>
