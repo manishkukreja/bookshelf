@@ -4,11 +4,11 @@
 
 <div id="episode" class="<%= "legacy" if @book.legacy? %>">
 
-<!-- 	   <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true' )%> -->
-
 	<div class="screenshot">
 		<script type="text/html" id="video_template">
      	
+     	
+ 	    <%= player(:allowfullscreen => 'true',:allowscriptaccess => 'true' )%>
 
 		  <!-- <embed 
 		  		src='<%= @book.audio_url%>' ,
@@ -18,6 +18,8 @@
 		  />  --> 
 		  <iframe width="420" height="315" src=<%=@book.permalink%> frameborder="0" allowfullscreen></iframe>	
      </script>
+
+	</div>
 
   <%# if params[:autoplay] %>
 <!--
@@ -57,17 +59,20 @@
     <div class="watch">
     	
 
-      <!-- <%= link_to({:autoplay => true}, {:class => "play_audio watch_button"}) do %>
+<!-- #This code is for player helper 	 -->
+  <% if false %>
+      <%= link_to({:autoplay => true}, {:class => "play_audio watch_button"}) do %>
 
         Click to Play Audio &#9654; 
         <%if params[:autoplay] %>
-        <%=render "player" %> -->
+        <%=render "player" %>
         
 
-<!--         <%end%> -->
-
-    
+   
+        <%end%>
+    <% end %> 
   <% end %>
+  <!--  #Code for player ends here-->
     </div>
     <div class="social">
       <a href="http://twitter.com/share" class="twitter-share-button" data-url="<%= book_url(@book) %>" data-text="Reading <%= @book.name %> on Bookshelf" data-count="horizontal" data-via="railscasts">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
@@ -92,6 +97,5 @@
   </div>
   <%= link_to "List of Books", books_path%>
 </div>
-
 
 

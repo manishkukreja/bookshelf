@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   database: db/bookshelf_pg_dev
   username: postgres
-  password: admin1234
+  password: unix11
   pool: 5
   timeout: 5000
   
@@ -10,6 +10,6 @@ test:
   adapter: postgresql
   database: db/bookshelf_pg_test
   username: postgres
-  password: admin1234
+  password: unix11
   pool: 5
   timeout: 5000
